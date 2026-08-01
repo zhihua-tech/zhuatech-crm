@@ -40,4 +40,16 @@ class CrmApiIntegrationTests {
     @Test void unauthenticatedRequestsAreRejected() throws Exception {
         mvc.perform(get("/api/dashboard")).andExpect(status().isForbidden());
     }
+
+    @Test void salesUserCanEvaluateCustomerHealth() throws Exception {
+        String login=mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON).content("{\"username\":\"demo\",\"password\":\"Demo@2026\"}"))
+            .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        String token=JsonPath.read(login,"$.data.token");
+        mvc.perform(post("/api/customer-intelligence/health-score").header("Authorization","Bearer "+token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"customerName\":\"华东示例客户\",\"engagementScore\":70,\"paymentRisk\":0.6,\"openOpportunities\":2,\"inactiveDays\":20,\"criticalComplaint\":true}"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.data.healthScore").value(9))
+            .andExpect(jsonPath("$.data.band").value("RISK"))
+            .andExpect(jsonPath("$.data.managerReview").value(true));
+    }
 }

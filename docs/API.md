@@ -33,3 +33,7 @@ Copyright © 2026 上海如静知华信息科技有限公司。
 - 商机阶段：`LEAD`、`DISCOVERY`、`PROPOSAL`、`NEGOTIATION`、`WON`、`LOST`
 - 跟进方式：`PHONE`、`WECHAT`、`VISIT`、`EMAIL`、`OTHER`
 - 任务优先级：`LOW`、`MEDIUM`、`HIGH`
+
+## 客户健康度
+
+`POST /api/customer-intelligence/health-score`：依据互动、付款、商机、静默和客诉信息返回健康分层与经营动作。

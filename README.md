@@ -139,3 +139,9 @@ CRM 社区源码、Java CRM 学习项目、Spring Boot CRM、Vue CRM、H5 客户
 ---
 
 Copyright © 2026 上海如静知华信息科技有限公司（知华科技）
+
+## 客户经营新增健康度雷达
+
+社区版现在可以把互动活跃度、付款风险、未结商机、静默天数和重大客诉合并为 0–100 的客户健康分，并给出 `HEALTHY / WATCH / RISK` 分层。风险客户会返回回访、账期复核和客诉闭环建议，方便销售主管把有限精力放在最需要干预的客户上。
+
+调用入口为 `POST /api/customer-intelligence/health-score`，该能力已加入登录态集成测试。
