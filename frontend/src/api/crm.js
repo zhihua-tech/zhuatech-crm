@@ -6,5 +6,6 @@ export const api={
  contacts:customerId=>http.get('/contacts',{params:{customerId}}),createContact:data=>http.post('/contacts',data),deleteContact:id=>http.delete(`/contacts/${id}`),
  opportunities:customerId=>http.get('/opportunities',{params:customerId?{customerId}:{}}),createOpportunity:data=>http.post('/opportunities',data),updateOpportunityStage:(id,data)=>http.patch(`/opportunities/${id}/stage`,data),
  followUps:customerId=>http.get('/follow-ups',{params:{customerId}}),recentFollowUps:()=>http.get('/follow-ups/recent'),createFollowUp:data=>http.post('/follow-ups',data),
- tasks:()=>http.get('/tasks'),createTask:data=>http.post('/tasks',data),setTask:(id,completed)=>http.patch(`/tasks/${id}`,{completed}),deleteTask:id=>http.delete(`/tasks/${id}`)
+ tasks:()=>http.get('/tasks'),createTask:data=>http.post('/tasks',data),setTask:(id,completed)=>http.patch(`/tasks/${id}`,{completed}),deleteTask:id=>http.delete(`/tasks/${id}`),
+ opportunityForecast:data=>http.post('/customer-intelligence/opportunity-forecast',data)
 }

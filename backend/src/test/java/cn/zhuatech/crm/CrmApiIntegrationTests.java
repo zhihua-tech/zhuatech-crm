@@ -52,4 +52,17 @@ class CrmApiIntegrationTests {
             .andExpect(jsonPath("$.data.band").value("RISK"))
             .andExpect(jsonPath("$.data.managerReview").value(true));
     }
+
+    @Test void salesUserCanGenerateWeightedOpportunityForecast() throws Exception {
+        String login=mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON).content("{\"username\":\"demo\",\"password\":\"Demo@2026\"}"))
+            .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+        String token=JsonPath.read(login,"$.data.token");
+        mvc.perform(post("/api/customer-intelligence/opportunity-forecast").header("Authorization","Bearer "+token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"quarterTarget\":1000000,\"deals\":[{\"name\":\"华东数字化项目\",\"amount\":800000,\"probability\":75,\"stage\":\"NEGOTIATION\",\"expectedCloseDate\":\"2026-08-18\",\"daysSinceActivity\":3,\"criticalBlocker\":false},{\"name\":\"门店升级项目\",\"amount\":300000,\"probability\":40,\"stage\":\"PROPOSAL\",\"expectedCloseDate\":\"2026-08-12\",\"daysSinceActivity\":18,\"criticalBlocker\":true}]}"))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.data.weightedForecast").value(720000.0))
+            .andExpect(jsonPath("$.data.commitForecast").value(600000.0))
+            .andExpect(jsonPath("$.data.atRiskDeals").value(1))
+            .andExpect(jsonPath("$.data.deals[0].name").value("门店升级项目"));
+    }
 }
