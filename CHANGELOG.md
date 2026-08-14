@@ -6,6 +6,7 @@
 
 ### Added
 
+- 新增可解释线索评分、沉默惩罚和分级跟进建议。
 - 初始化知华科技 CRM 社区源码版单仓库。
 - Java 21 / Spring Boot / MySQL 后端。
 - Vue 3 / Vant 移动端 H5。
