@@ -37,3 +37,7 @@ Copyright © 2026 上海如静知华信息科技有限公司。
 ## 客户健康度
 
 `POST /api/customer-intelligence/health-score`：依据互动、付款、商机、静默和客诉信息返回健康分层与经营动作。
+
+## 下一最佳销售动作
+
+`POST /api/crm/insights/next-best-action`：根据客户阶段、跟进间隔、关系覆盖、未结问题和合同期限返回优先级、推荐动作与可解释原因。
