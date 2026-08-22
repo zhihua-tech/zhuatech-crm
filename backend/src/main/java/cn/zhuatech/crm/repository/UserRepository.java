@@ -1,4 +1,4 @@
-/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ */
 package cn.zhuatech.crm.repository;
 import cn.zhuatech.crm.model.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
