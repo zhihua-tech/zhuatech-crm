@@ -4,6 +4,10 @@
 
 新增客户联系授权、阶段证据、折扣权限、决策人、下一步计划和交付可行性联合校验，输出 `ADVANCE / REVIEW / BLOCKED` 决策，详见 [商机阶段门禁](docs/ENTERPRISE_OPPORTUNITY_GATE.md)。
 
+## 企业级增强：客户主数据合并
+
+新增重复客户合并治理，统一校验法律主体、数据归属、联系人授权、商机、合同、应收、服务工单、营销偏好、字段冲突、双负责人审批、职责分离和审计证据，详见[客户主数据合并治理](docs/ENTERPRISE_CUSTOMER_ACCOUNT_MERGE.md)。
+
 [![License](https://img.shields.io/badge/license-Community_Source_Noncommercial-orange.svg)](LICENSE)
 [![Java](https://img.shields.io/badge/Java-21-ED8B00.svg)](backend/pom.xml)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0-6DB33F.svg)](backend/pom.xml)
