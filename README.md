@@ -1,5 +1,9 @@
 # ZhuaTech CRM — 知华科技 CRM 社区源码版
 
+## 企业级增强：报价与毛利审批
+
+新增客户/商机核验、价格版本、折扣权限、毛利底线、信用、法务、职责分离和审批路由，详见[报价审批治理](docs/ENTERPRISE_QUOTATION_APPROVAL.md)。
+
 ## 企业级增强：商机阶段门禁
 
 新增客户联系授权、阶段证据、折扣权限、决策人、下一步计划和交付可行性联合校验，输出 `ADVANCE / REVIEW / BLOCKED` 决策，详见 [商机阶段门禁](docs/ENTERPRISE_OPPORTUNITY_GATE.md)。
