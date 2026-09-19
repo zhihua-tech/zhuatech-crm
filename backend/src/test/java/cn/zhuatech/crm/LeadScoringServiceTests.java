@@ -6,9 +6,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class LeadScoringServiceTests {
     private final LeadScoringService service = new LeadScoringService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void marksQualifiedActiveLeadAsHot() {
         var result = service.score(new LeadScoringService.Request("L-202608-01", 92, 88, 84, 2, true, true));
         assertThat(result.grade()).isEqualTo("HOT");
@@ -16,6 +22,9 @@ class LeadScoringServiceTests {
         assertThat(result.recommendedActions()).anyMatch(action -> action.contains("二十四小时"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void penalizesInactiveUnqualifiedLead() {
         var result = service.score(new LeadScoringService.Request("L-202608-02", 55, 40, 32, 35, false, false));
         assertThat(result.grade()).isEqualTo("COLD");

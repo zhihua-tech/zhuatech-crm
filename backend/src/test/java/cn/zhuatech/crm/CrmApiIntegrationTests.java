@@ -12,10 +12,16 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @SpringBootTest @AutoConfigureMockMvc
 class CrmApiIntegrationTests {
     @Autowired MockMvc mvc;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void salesUserCanLoginAndReadOwnCustomers() throws Exception {
         String body=mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON).content("{\"username\":\"demo\",\"password\":\"Demo@2026\"}"))
             .andExpect(status().isOk()).andExpect(jsonPath("$.data.user.role").value("SALES")).andReturn().getResponse().getContentAsString();
@@ -24,6 +30,9 @@ class CrmApiIntegrationTests {
             .andExpect(status().isOk()).andExpect(jsonPath("$.data").isArray()).andExpect(jsonPath("$.data[0].ownerName").value("知华销售"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void salesUserCanCreateCustomerAndRelatedFollowUp() throws Exception {
         String login=mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON).content("{\"username\":\"demo\",\"password\":\"Demo@2026\"}"))
             .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
@@ -37,10 +46,16 @@ class CrmApiIntegrationTests {
             .andExpect(status().isOk()).andExpect(jsonPath("$.data.customerName").value("集成测试客户")).andExpect(jsonPath("$.data.method").value("PHONE"));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void unauthenticatedRequestsAreRejected() throws Exception {
         mvc.perform(get("/api/dashboard")).andExpect(status().isForbidden());
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void salesUserCanEvaluateCustomerHealth() throws Exception {
         String login=mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON).content("{\"username\":\"demo\",\"password\":\"Demo@2026\"}"))
             .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
@@ -53,6 +68,9 @@ class CrmApiIntegrationTests {
             .andExpect(jsonPath("$.data.managerReview").value(true));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void salesUserCanGenerateWeightedOpportunityForecast() throws Exception {
         String login=mvc.perform(post("/api/auth/login").contentType(MediaType.APPLICATION_JSON).content("{\"username\":\"demo\",\"password\":\"Demo@2026\"}"))
             .andExpect(status().isOk()).andReturn().getResponse().getContentAsString();

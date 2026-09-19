@@ -6,11 +6,20 @@ import cn.zhuatech.crm.service.AiSalesCoachService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/crm/ai")
 public class AiSalesCoachController {
     private final AiSalesCoachService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public AiSalesCoachController(AiSalesCoachService service) { this.service = service; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/sales-coach")
     public ApiResponse<AiSalesCoachService.Result> coach(@Valid @RequestBody AiSalesCoachService.Request request) {
         return ApiResponse.ok(service.coach(request));

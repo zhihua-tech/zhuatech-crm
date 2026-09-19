@@ -6,12 +6,21 @@ import cn.zhuatech.crm.service.LeadScoringService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/crm/insights")
 public class LeadScoringController {
     private final LeadScoringService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public LeadScoringController(LeadScoringService service) { this.service = service; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/lead-score")
     public ApiResponse<LeadScoringService.Result> score(@Valid @RequestBody LeadScoringService.Request request) {
         return ApiResponse.ok(service.score(request));

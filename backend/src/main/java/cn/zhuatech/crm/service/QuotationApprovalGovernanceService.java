@@ -6,8 +6,14 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class QuotationApprovalGovernanceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Assessment assess(Request r) {
         List<String> blockers = new ArrayList<>();
         List<String> actions = new ArrayList<>();
@@ -26,6 +32,9 @@ public class QuotationApprovalGovernanceService {
         String route = risk == RiskLevel.HIGH ? "销售经理→财务BP→法务/销售总监" : "销售经理";
         return new Assessment(r.quotationNo(), decision, risk, route, List.copyOf(blockers), List.copyOf(actions));
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String quotationNo, @NotBlank String ownerId, @NotBlank String approverId,
                           @NotNull @DecimalMin("0.00") @DecimalMax("1.00") BigDecimal discountRate,
                           @NotNull @DecimalMin("0.00") @DecimalMax("1.00") BigDecimal authorizedDiscountRate,
@@ -34,8 +43,17 @@ public class QuotationApprovalGovernanceService {
                           boolean customerVerified, boolean opportunityQualified, boolean catalogVersionValid,
                           boolean currencyAndTaxConfirmed, boolean customerCreditPassed, boolean nonStandardTerms,
                           boolean legalReviewed, boolean auditEvidenceAttached, boolean followUpScheduled) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Assessment(String quotationNo, Decision decision, RiskLevel riskLevel, String approvalRoute,
                              List<String> blockers, List<String> actions) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { APPROVE, ESCALATE, BLOCKED }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum RiskLevel { NORMAL, HIGH }
 }

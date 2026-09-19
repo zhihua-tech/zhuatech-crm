@@ -4,8 +4,14 @@ package cn.zhuatech.crm.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Entity @Table(name = "crm_customer")
 public class Customer extends BaseEntity {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Status { LEAD, FOLLOWING, CUSTOMER, INACTIVE }
     @Column(nullable = false, length = 120) private String name;
     @Column(length = 60) private String shortName;
@@ -20,11 +26,59 @@ public class Customer extends BaseEntity {
     private LocalDate nextFollowUpDate;
     @ManyToOne(fetch = FetchType.EAGER, optional = false) @JoinColumn(name = "owner_id") private UserAccount owner;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     protected Customer() {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Customer(String name, UserAccount owner) { this.name = name; this.owner = owner; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public void update(String name, String shortName, String industry, String level, Status status, String source, String phone, String email, String address, LocalDate nextFollowUpDate, String notes) {
         this.name=name; this.shortName=shortName; this.industry=industry; this.level=level; this.status=status; this.source=source; this.phone=phone; this.email=email; this.address=address; this.nextFollowUpDate=nextFollowUpDate; this.notes=notes;
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public void setNextFollowUpDate(LocalDate nextFollowUpDate) { this.nextFollowUpDate = nextFollowUpDate; }
-    public String getName(){return name;} public String getShortName(){return shortName;} public String getIndustry(){return industry;} public String getLevel(){return level;} public Status getStatus(){return status;} public String getSource(){return source;} public String getPhone(){return phone;} public String getEmail(){return email;} public String getAddress(){return address;} public String getNotes(){return notes;} public LocalDate getNextFollowUpDate(){return nextFollowUpDate;} public UserAccount getOwner(){return owner;}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
+    public String getName(){return name;} /**
+                                           * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                           */
+public String getShortName(){return shortName;} /**
+                                                                                           * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                           */
+public String getIndustry(){return industry;} /**
+                                                                                                                                         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                         */
+public String getLevel(){return level;} /**
+                                                                                                                                                                                 * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                 */
+public Status getStatus(){return status;} /**
+                                                                                                                                                                                                                           * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                           */
+public String getSource(){return source;} /**
+                                                                                                                                                                                                                                                                     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                     */
+public String getPhone(){return phone;} /**
+                                                                                                                                                                                                                                                                                                             * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                                                             */
+public String getEmail(){return email;} /**
+                                                                                                                                                                                                                                                                                                                                                     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                                                                                                     */
+public String getAddress(){return address;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                 * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                                                                                                                                                 */
+public String getNotes(){return notes;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                                                                                                                                                                                         */
+public LocalDate getNextFollowUpDate(){return nextFollowUpDate;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+public UserAccount getOwner(){return owner;}
 }

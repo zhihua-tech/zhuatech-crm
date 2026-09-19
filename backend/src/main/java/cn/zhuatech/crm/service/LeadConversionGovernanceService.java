@@ -10,9 +10,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 在线索转客户前统一执行资格、重复客户、授权和数据归属检查。 */
+/**
+ * 在线索转客户前统一执行资格、重复客户、授权和数据归属检查。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class LeadConversionGovernanceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Assessment assess(Request request) {
         List<String> blockers = new ArrayList<>();
         List<String> actions = new ArrayList<>();
@@ -44,6 +51,9 @@ public class LeadConversionGovernanceService {
                 List.copyOf(blockers), List.copyOf(actions));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String leadId, @NotBlank String companyName,
                           @Email @NotBlank String contactEmail,
                           @Min(0) @Max(100) int qualificationScore,
@@ -54,8 +64,14 @@ public class LeadConversionGovernanceService {
                           boolean existingAccountLinked, boolean duplicateReviewCompleted,
                           boolean sourceEvidenceArchived, boolean downstreamSyncReady) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Assessment(String leadId, Decision decision, int qualificationScore,
                              String matchedAccountId, List<String> blockers, List<String> actions) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { CONVERT, LINK_EXISTING, REVIEW, BLOCKED }
 }

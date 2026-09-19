@@ -10,14 +10,29 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController @RequestMapping("/api/opportunities")
 public class OpportunityController {
     private final OpportunityRepository opportunities; private final CrmAccessService access;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public OpportunityController(OpportunityRepository opportunities,CrmAccessService access){this.opportunities=opportunities;this.access=access;}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping public ApiResponse<List<OpportunityView>> list(@RequestParam(required=false) Long customerId){
         if(customerId!=null)return ApiResponse.ok(opportunities.findByCustomerOrderByUpdatedAtDesc(access.customer(customerId)).stream().map(OpportunityView::from).toList());
         var user=access.current();var items=access.canViewAll(user)?opportunities.findAllByOrderByUpdatedAtDesc():opportunities.findByOwnerOrderByUpdatedAtDesc(user);return ApiResponse.ok(items.stream().map(OpportunityView::from).toList());
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping public ApiResponse<OpportunityView> create(@Valid @RequestBody OpportunityRequest r){var customer=access.customer(r.customerId());var item=new Opportunity(customer,access.current(),r.name(),r.amount(),r.stage(),r.probability(),r.expectedCloseDate(),r.nextStep());return ApiResponse.ok("商机已创建",OpportunityView.from(opportunities.save(item)));}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PatchMapping("/{id}/stage") public ApiResponse<OpportunityView> stage(@PathVariable Long id,@Valid @RequestBody OpportunityStageRequest r){var item=opportunities.findById(id).orElseThrow(()->new BusinessException("商机不存在"));access.customer(item.getCustomer().getId());item.changeStage(r.stage(),r.probability(),r.nextStep());return ApiResponse.ok("商机阶段已更新",OpportunityView.from(opportunities.save(item)));}
 }

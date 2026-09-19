@@ -9,8 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class LeadScoringService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result score(Request request) {
         int base = (int) Math.round(request.fitScore() * 0.35 + request.intentScore() * 0.30
             + request.engagementScore() * 0.25);
@@ -28,6 +34,9 @@ public class LeadScoringService {
         return new Result(request.leadCode(), total, grade, inactivityPenalty, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String leadCode,
                           @Min(0) @Max(100) int fitScore,
                           @Min(0) @Max(100) int intentScore,
@@ -35,6 +44,9 @@ public class LeadScoringService {
                           @Min(0) int daysInactive,
                           boolean budgetConfirmed, boolean decisionMakerConnected) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String leadCode, int score, String grade, int inactivityPenalty,
                          List<String> recommendedActions) {}
 }

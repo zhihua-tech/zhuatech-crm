@@ -3,6 +3,9 @@ package cn.zhuatech.crm.model;
 
 import jakarta.persistence.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Entity @Table(name = "crm_contact")
 public class Contact extends BaseEntity {
     @ManyToOne(fetch = FetchType.EAGER, optional = false) @JoinColumn(name = "customer_id") private Customer customer;
@@ -12,7 +15,34 @@ public class Contact extends BaseEntity {
     @Column(length = 120) private String email;
     @Column(nullable = false) private boolean primaryContact;
     @Column(length = 500) private String notes;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     protected Contact() {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Contact(Customer customer, String name, String title, String phone, String email, boolean primaryContact, String notes) { this.customer=customer; this.name=name; this.title=title; this.phone=phone; this.email=email; this.primaryContact=primaryContact; this.notes=notes; }
-    public Customer getCustomer(){return customer;} public String getName(){return name;} public String getTitle(){return title;} public String getPhone(){return phone;} public String getEmail(){return email;} public boolean isPrimaryContact(){return primaryContact;} public String getNotes(){return notes;}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
+    public Customer getCustomer(){return customer;} /**
+                                                     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                     */
+public String getName(){return name;} /**
+                                                                                           * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                           */
+public String getTitle(){return title;} /**
+                                                                                                                                   * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                   */
+public String getPhone(){return phone;} /**
+                                                                                                                                                                           * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                           */
+public String getEmail(){return email;} /**
+                                                                                                                                                                                                                   * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                   */
+public boolean isPrimaryContact(){return primaryContact;} /**
+                                                                                                                                                                                                                                                                             * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                             */
+public String getNotes(){return notes;}
 }

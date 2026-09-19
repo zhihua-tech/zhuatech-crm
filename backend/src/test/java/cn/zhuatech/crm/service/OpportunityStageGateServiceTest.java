@@ -4,9 +4,15 @@ package cn.zhuatech.crm.service;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class OpportunityStageGateServiceTest {
     private final OpportunityStageGateService service = new OpportunityStageGateService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void advancesQualifiedOpportunity() {
         var result = service.assess(new OpportunityStageGateService.Request(
                 "OPP-001", "PROPOSAL", 8_000_000, 500, 800, true, true, true, true, true));
@@ -14,6 +20,9 @@ class OpportunityStageGateServiceTest {
         assertThat(result.blockers()).isEmpty();
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void blocksConsentAndDiscountViolations() {
         var result = service.assess(new OpportunityStageGateService.Request(
                 "OPP-002", "NEGOTIATION", 20_000_000, 1800, 1000, false, false, false, false, false));

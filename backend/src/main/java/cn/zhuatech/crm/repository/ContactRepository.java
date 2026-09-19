@@ -3,4 +3,10 @@ package cn.zhuatech.crm.repository;
 import cn.zhuatech.crm.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
-public interface ContactRepository extends JpaRepository<Contact,Long> { List<Contact> findByCustomerOrderByPrimaryContactDescCreatedAtAsc(Customer customer); }
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
+public interface ContactRepository extends JpaRepository<Contact,Long> { /**
+                                                                          * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                          */
+List<Contact> findByCustomerOrderByPrimaryContactDescCreatedAtAsc(Customer customer); }

@@ -11,8 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class CustomerHealthService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result evaluate(Request request) {
         int score = Math.max(0, Math.min(100, (int) Math.round(request.engagementScore() * .45
             + (1 - request.paymentRisk()) * 30 + Math.min(15, request.openOpportunities() * 5)
@@ -26,10 +32,16 @@ public class CustomerHealthService {
         return new Result(request.customerName(), score, band, !"HEALTHY".equals(band), actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String customerName, @Min(0) @Max(100) int engagementScore,
                           @DecimalMin("0") @DecimalMax("1") double paymentRisk,
                           @Min(0) int openOpportunities, @Min(0) int inactiveDays,
                           boolean criticalComplaint) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String customerName, int healthScore, String band,
                          boolean managerReview, List<String> actions) {}
 }

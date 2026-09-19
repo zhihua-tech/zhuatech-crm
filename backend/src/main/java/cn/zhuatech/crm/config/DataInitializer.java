@@ -10,10 +10,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Component
 public class DataInitializer implements CommandLineRunner {
     private final UserRepository users; private final CustomerRepository customers; private final ContactRepository contacts; private final OpportunityRepository opportunities; private final FollowUpRepository followUps; private final SalesTaskRepository tasks; private final PasswordEncoder encoder;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public DataInitializer(UserRepository users,CustomerRepository customers,ContactRepository contacts,OpportunityRepository opportunities,FollowUpRepository followUps,SalesTaskRepository tasks,PasswordEncoder encoder){this.users=users;this.customers=customers;this.contacts=contacts;this.opportunities=opportunities;this.followUps=followUps;this.tasks=tasks;this.encoder=encoder;}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Override @Transactional public void run(String... args){
         if(users.count()>0)return;
         UserAccount admin=new UserAccount("admin",encoder.encode("ZhuaTech@2026"),"系统管理员",UserAccount.Role.ADMIN);admin.updateProfile("contact@zhuatech.cn","021-00000000","CRM 管理员");users.save(admin);

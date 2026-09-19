@@ -6,12 +6,21 @@ import cn.zhuatech.crm.service.CustomerAccountMergeGovernanceService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/enterprise/crm")
 public class CustomerAccountMergeGovernanceController {
     private final CustomerAccountMergeGovernanceService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public CustomerAccountMergeGovernanceController(CustomerAccountMergeGovernanceService service) { this.service = service; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/customer-account-merge")
     public ApiResponse<CustomerAccountMergeGovernanceService.Assessment> assess(
             @Valid @RequestBody CustomerAccountMergeGovernanceService.Request request) {

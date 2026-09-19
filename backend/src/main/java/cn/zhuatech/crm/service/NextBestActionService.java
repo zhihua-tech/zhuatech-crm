@@ -10,8 +10,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class NextBestActionService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result recommend(Request request) {
         int score = Math.min(30, request.daysWithoutContact());
         score += Math.max(0, 30 - request.stageProbabilityPercent() / 3);
@@ -38,6 +44,9 @@ public class NextBestActionService {
         return new Result(request.customerCode(), score, priority, action, reasons);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String customerCode,
                           @DecimalMin("0") BigDecimal opportunityAmount,
                           @Min(0) int daysWithoutContact,
@@ -46,6 +55,9 @@ public class NextBestActionService {
                           @Min(0) int unresolvedIssues,
                           @Min(0) int contractDaysRemaining) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String customerCode, int priorityScore, String priority,
                          String nextBestAction, List<String> reasons) {}
 }

@@ -7,10 +7,16 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class AiSalesCoachServiceTests {
     private final AiSalesCoachService service = new AiSalesCoachService(
         new OpenAiCompatibleGateway("local", "https://api.deepseek.com", "deepseek-chat", ""));
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void identifiesStalledOpportunity() {
         var result = service.coach(new AiSalesCoachService.Request("华东数字化项目", "方案", 45, 12, 1,
             true, List.of("预算偏高", "上线周期"), false));

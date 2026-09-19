@@ -10,10 +10,19 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController @RequestMapping("/api/dashboard")
 public class DashboardController {
     private final CustomerRepository customers; private final OpportunityRepository opportunities; private final SalesTaskRepository tasks; private final CrmAccessService access;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public DashboardController(CustomerRepository customers,OpportunityRepository opportunities,SalesTaskRepository tasks,CrmAccessService access){this.customers=customers;this.opportunities=opportunities;this.tasks=tasks;this.access=access;}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping public ApiResponse<DashboardView> dashboard(){
         var user=access.current();
         var ops=access.canViewAll(user)?opportunities.findAllByOrderByUpdatedAtDesc():opportunities.findByOwnerOrderByUpdatedAtDesc(user);

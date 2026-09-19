@@ -15,9 +15,16 @@ import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 
-/** 汇总销售管道的加权预测，并识别长时间未推进或临近关单的风险商机。 */
+/**
+ * 汇总销售管道的加权预测，并识别长时间未推进或临近关单的风险商机。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class OpportunityForecastService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ForecastResult forecast(ForecastRequest request) {
         List<DealForecast> deals = request.deals().stream().map(this::evaluate)
             .sorted(Comparator.comparing(DealForecast::riskScore).reversed()
@@ -39,6 +46,9 @@ public class OpportunityForecastService {
             atRisk, deals, guidance);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private DealForecast evaluate(DealInput deal) {
         BigDecimal weighted = deal.amount().multiply(BigDecimal.valueOf(deal.probability()))
             .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
@@ -55,15 +65,27 @@ public class OpportunityForecastService {
         return new DealForecast(deal.name(), weighted, category, risk, attention, daysToClose, nextAction);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record DealInput(@NotBlank String name, @DecimalMin("0") BigDecimal amount,
                             @Min(0) @Max(100) int probability, @NotBlank String stage,
                             LocalDate expectedCloseDate, @Min(0) int daysSinceActivity,
                             boolean criticalBlocker) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ForecastRequest(@DecimalMin("0") BigDecimal quarterTarget,
                                   @NotEmpty List<@Valid DealInput> deals) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record DealForecast(String name, BigDecimal weightedAmount, String category,
                                int riskScore, boolean managerAttention, long daysToClose,
                                String nextAction) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ForecastResult(BigDecimal quarterTarget, BigDecimal weightedForecast,
                                  BigDecimal commitForecast, BigDecimal upsideForecast,
                                  BigDecimal targetCoverage, long atRiskDeals,
