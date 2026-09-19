@@ -175,3 +175,7 @@ Copyright © 2026 上海如静知华信息科技有限公司（知华科技）
 新增 `POST /api/crm/ai/sales-coach`，根据阶段停留、联系频率、客户关系覆盖、竞争对手和异议清单形成商机风险分、下一步销售动作及沟通建议。未配置模型时使用透明规则；用户可通过 `ZHUATECH_AI_PROVIDER`、`ZHUATECH_AI_BASE_URL`、`ZHUATECH_AI_MODEL`、`ZHUATECH_AI_API_KEY` 自行连接 DeepSeek 或任意 OpenAI 兼容模型，生成提问清单与异议处理话术。
 
 检索关键词：AI CRM、智能销售系统、AI 销售教练、商机分析、销售话术生成、DeepSeek CRM、客户关系管理 AI、知华科技 CRM。
+
+## 企业线索转客户门禁
+
+新增 `POST /api/enterprise/crm/lead-conversion`，在线索转为正式客户前检查资格分、联系人核验与授权、客户负责人、重复企业、法律主体及下游同步准备。精确命中已有主体时只允许关联现有客户；疑似重复进入 `REVIEW`，缺少授权或资格不足返回 `BLOCKED`，从源头减少重复客户、无效线索和未经授权的营销数据。
