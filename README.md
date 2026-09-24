@@ -1,5 +1,9 @@
 # ZhuaTech CRM — 知华科技 CRM 社区源码版
 
+## 企业级增强：客户归属转移
+
+新增销售权限、目标人员状态、客户容量、销售区域、保护客户、渠道冲突和在途商机交接检查，详见[客户归属转移治理](docs/ENTERPRISE_ACCOUNT_OWNERSHIP_TRANSFER.md)。
+
 ## 企业级增强：报价与毛利审批
 
 新增客户/商机核验、价格版本、折扣权限、毛利底线、信用、法务、职责分离和审批路由，详见[报价审批治理](docs/ENTERPRISE_QUOTATION_APPROVAL.md)。
