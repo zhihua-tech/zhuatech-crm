@@ -183,3 +183,7 @@ Copyright © 2026 上海如静知华信息科技有限公司（知华科技）
 ## 企业线索转客户门禁
 
 新增 `POST /api/enterprise/crm/lead-conversion`，在线索转为正式客户前检查资格分、联系人核验与授权、客户负责人、重复企业、法律主体及下游同步准备。精确命中已有主体时只允许关联现有客户；疑似重复进入 `REVIEW`，缺少授权或资格不足返回 `BLOCKED`，从源头减少重复客户、无效线索和未经授权的营销数据。
+
+## 客户信用额度治理
+
+新增 `POST /api/enterprise/crm/customer-credit-limit`，实时计算应收与未开票订单暴露，结合逾期天数、制裁命中、风险等级和证据完整性给出授信决策。详细规则见 [客户信用额度治理](docs/ENTERPRISE_CUSTOMER_CREDIT_LIMIT.md)。
