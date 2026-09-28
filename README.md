@@ -1,5 +1,7 @@
 # ZhuaTech CRM — 知华科技 CRM 社区源码版
 
+[简体中文](README.md) | [English](README.en.md)
+
 ## 企业级增强：客户归属转移
 
 新增销售权限、目标人员状态、客户容量、销售区域、保护客户、渠道冲突和在途商机交接检查，详见[客户归属转移治理](docs/ENTERPRISE_ACCOUNT_OWNERSHIP_TRANSFER.md)。
