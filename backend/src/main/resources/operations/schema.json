@@ -1,0 +1,92 @@
+{
+  "slug": "crm",
+  "title": "报价净毛利与折扣权限复核",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "listAmount",
+      "label": "整单标价",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "discount",
+      "label": "整单折扣额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "cost",
+      "label": "整单直接成本",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "minimumMarginPct",
+      "label": "最低毛利率%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    },
+    {
+      "key": "allowedDiscountPct",
+      "label": "本人折扣权限%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    }
+  ],
+  "columns": [
+    {
+      "key": "netQuotation",
+      "label": "折扣后报价"
+    },
+    {
+      "key": "grossProfit",
+      "label": "直接成本毛利"
+    },
+    {
+      "key": "marginPct",
+      "label": "毛利率%"
+    },
+    {
+      "key": "discountPct",
+      "label": "折扣比例%"
+    },
+    {
+      "key": "needsHigherApproval",
+      "label": "超输入折扣权限"
+    }
+  ],
+  "description": "在整单折扣后同时核对贡献毛利底线和输入的个人折扣权限，识别低毛利报价及需升级审批的折扣。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "listAmount": "10000",
+        "discount": "1000",
+        "cost": "6000",
+        "minimumMarginPct": "20",
+        "allowedDiscountPct": "15"
+      }
+    ]
+  }
+}

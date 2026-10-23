@@ -1,0 +1,59 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "netQuotation": "#9000",
+      "grossProfit": "#3000"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "discount": "2000"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "needsHigherApproval": "true"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "cost": "8000"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "discount": "10001"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "discount": "10000"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "marginPct": "N/A"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "discount": "2000",
+      "cost": "6400",
+      "allowedDiscountPct": "20"
+    },
+    "expected": {
+      "decision": "PASS",
+      "marginPct": "#20"
+    },
+    "error": false
+  }
+]
