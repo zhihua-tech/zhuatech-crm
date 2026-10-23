@@ -1,0 +1,97 @@
+{
+  "slug": "crm",
+  "title": "销售线索阶段与赢单概率预检",
+  "fields": [
+    {
+      "key": "lead_no",
+      "label": "线索编号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "company",
+      "label": "公司",
+      "type": "TEXT",
+      "length": 200
+    },
+    {
+      "key": "email",
+      "label": "联系邮箱",
+      "type": "EMAIL",
+      "length": 200
+    },
+    {
+      "key": "stage",
+      "label": "阶段",
+      "type": "ENUM",
+      "length": 200,
+      "options": [
+        "NEW",
+        "QUALIFIED",
+        "WON",
+        "LOST"
+      ]
+    },
+    {
+      "key": "probability",
+      "label": "赢单概率",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0,
+      "max": "100"
+    },
+    {
+      "key": "amount",
+      "label": "预计金额",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    }
+  ],
+  "unique": [
+    [
+      "lead_no"
+    ],
+    [
+      "email"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "IF_EQ",
+      "args": [
+        "stage",
+        "WON",
+        "probability",
+        "100"
+      ],
+      "code": "WON_PROBABILITY",
+      "message": "已赢单概率必须为100",
+      "bad": {
+        "probability": "50"
+      }
+    },
+    {
+      "op": "IF_EQ",
+      "args": [
+        "stage",
+        "LOST",
+        "probability",
+        "0"
+      ],
+      "code": "LOST_PROBABILITY",
+      "message": "已丢单概率必须为0",
+      "bad": {
+        "stage": "LOST"
+      }
+    }
+  ],
+  "sampleCsv": "lead_no,company,email,stage,probability,amount\nLEAD-001,示例企业,buyer@example.invalid,WON,100,25000\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
